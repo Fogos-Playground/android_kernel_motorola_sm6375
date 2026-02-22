@@ -2714,7 +2714,7 @@ void cts_firmware_upgrade_work(struct work_struct *work)
 
     cts_info("Firmware upgrade work");
 
-    cts_data = container_of(work, struct chipone_ts_data, fw_upgrade_work.work);
+    cts_data = container_of(work, struct chipone_ts_data, fw_upgrade_work);
     cts_dev = &cts_data->cts_dev;
 
     cts_lock_device(cts_dev);

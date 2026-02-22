@@ -860,9 +860,8 @@ static int cts_driver_probe(struct spi_device *client)
 #endif
 
     /* Init firmware upgrade work and schedule */
-    INIT_DELAYED_WORK(&cts_data->fw_upgrade_work, cts_firmware_upgrade_work);
-    queue_delayed_work(cts_data->workqueue, &cts_data->fw_upgrade_work,
-        msecs_to_jiffies(15 * 1000));
+    INIT_WORK(&cts_data->fw_upgrade_work, cts_firmware_upgrade_work);
+    queue_work(cts_data->workqueue, &cts_data->fw_upgrade_work);
 
     INIT_WORK(&cts_data->ts_resume_work, cts_resume_work_func);
 

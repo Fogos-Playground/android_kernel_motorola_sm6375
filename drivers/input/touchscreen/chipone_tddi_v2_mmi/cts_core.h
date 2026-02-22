@@ -428,7 +428,7 @@ struct chipone_ts_data {
     struct cts_device cts_dev;
     struct cts_platform_data *pdata;
     struct workqueue_struct *workqueue;
-    struct delayed_work fw_upgrade_work;
+    struct work_struct fw_upgrade_work;
     struct work_struct ts_resume_work;
 #ifdef CONFIG_CTS_CHARGER_DETECT
     void *charger_detect_data;
